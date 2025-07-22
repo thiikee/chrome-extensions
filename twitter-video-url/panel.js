@@ -3,9 +3,8 @@ chrome.devtools.network.onRequestFinished.addListener((req) => {
     var newline = true;
     req.getContent((body) => {
       var json = JSON.parse(body);
-      json.data.threaded_conversation_with_injections_v2.instructions[0].entries.forEach((entry) => {
-        if (entry.content.itemContent)
-        {
+      json.data.threaded_conversation_with_injections_v2.instructions[1].entries.forEach((entry) => {
+        if (entry.content.itemContent) {
           if (entry.content.itemContent.tweet_results) {
             var result = entry.content.itemContent.tweet_results.result;
             var legacy = result.tweet ? result.tweet.legacy : result.legacy;
